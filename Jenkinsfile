@@ -26,6 +26,7 @@ pipeline {
                 sh """
                 echo "Cleaned Up Workspace For Project"
                 echo "${env.CHANGE_ID} blahhhhhh"
+                ls
                 """
             }
         }
