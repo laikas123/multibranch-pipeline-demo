@@ -19,8 +19,8 @@ pipeline {
         
         stage('Cleanup Workspace') {
             steps {
+                echo "The current pr number is ${env.CHANGE_ID}"
                 sh """
-                echo "the current PR number is ${env.CHANGE_ID}"
                 echo "Cleaned Up Workspace For Project"
                 echo "pull request id = $PULL_REQUEST"
                 """
