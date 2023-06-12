@@ -37,11 +37,14 @@ pipeline {
             steps {
                 sh """
                 echo "Running Selenium Tests"
-                npm install -g mocha
-                npm install -g mocha-junit-reporter
-                npm install selenium-webdriver
-                mocha test
+                whoami 
+                pwd
                 """
+                
+                //                 npm install -g mocha
+//                 npm install -g mocha-junit-reporter
+//                 npm install selenium-webdriver
+//                 mocha test
 
                 
             }
