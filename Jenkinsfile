@@ -11,6 +11,9 @@ pipeline {
                     daysToKeepStr: '16', 
                     numToKeepStr: '10'
             )
+
+        disableConcurrentBuilds(abortPrevious: true)
+  
     }
     
     
