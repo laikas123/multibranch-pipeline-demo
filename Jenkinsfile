@@ -20,6 +20,7 @@ pipeline {
                 cleanWs()
                 sh """
                 echo "Cleaned Up Workspace For Project"
+                echo "hi"
                 """
             }
         }
