@@ -37,14 +37,13 @@ pipeline {
             steps {
                 sh """
                 echo "Running Selenium Tests"
-                whoami 
-                pwd
+                sudo npm install -g mocha
+                sudo npm install -g mocha-junit-reporter
+                sudo npm install selenium-webdriver
+                mocha test
                 """
                 
-                //                 npm install -g mocha
-//                 npm install -g mocha-junit-reporter
-//                 npm install selenium-webdriver
-//                 mocha test
+                
 
                 
             }
