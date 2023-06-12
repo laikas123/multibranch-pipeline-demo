@@ -11,60 +11,31 @@ pipeline {
                     daysToKeepStr: '16', 
                     numToKeepStr: '10'
             )
+
+        disableConcurrentBuilds(abortPrevious: true)
+  
     }
+    
+    
 
     stages {
         
         stage('Cleanup Workspace') {
             steps {
-                cleanWs()
+                echo "The current PR number is ${env.CHANGE_ID}"
+                echo "The current commit hash is ${env.GIT_COMMIT}"
+                echo "The current branch is ${env.GIT_BRANCH}"
+        
                 sh """
                 echo "Cleaned Up Workspace For Project"
-                echo "hi"
+                ls
                 """
             }
         }
 
-        stage('Code Checkout') {
-            steps {
-                checkout([
-                    $class: 'GitSCM', 
-                    branches: [[name: '*/main']], 
-                    userRemoteConfigs: [[url: 'https://github.com/spring-projects/spring-petclinic.git']]
-                ])
-            }
-        }
+       
 
-        stage(' Unit Testing') {
-            steps {
-                sh """
-                echo "Running Unit Tests"
-                """
-            }
-        }
-
-        stage('Code Analysis') {
-            steps {
-                sh """
-                echo "Running Code Analysis"
-                """
-            }
-        }
-
-        stage('Build Deploy Code') {
-            when {
-                branch 'develop'
-            }
-            steps {
-                sh """
-                echo "Building Artifact"
-                """
-
-                sh """
-                echo "Deploying Code"
-                """
-            }
-        }
+       
 
     }   
 }
