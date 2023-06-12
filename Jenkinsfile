@@ -25,7 +25,6 @@ pipeline {
         
                 sh """
                 echo "Cleaned Up Workspace For Project"
-                echo "${env.CHANGE_ID} blahhhhhh"
                 ls
                 """
             }
@@ -37,7 +36,11 @@ pipeline {
           
             steps {
                 sh """
-                echo "Building Artifact"
+                echo "Running Selenium Tests"
+                npm install -g mocha
+                npm install -g mocha-junit-reporter
+                npm install selenium-webdriver
+                mocha test
                 """
 
                 
