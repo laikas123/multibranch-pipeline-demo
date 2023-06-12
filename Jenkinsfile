@@ -26,6 +26,7 @@ pipeline {
                 echo "The current commit hash is ${env.GIT_COMMIT}"
                 echo "The current branch is ${env.GIT_BRANCH} hi"
                 sleep 30
+                sleep 30
                 sh """
                 echo "Cleaned Up Workspace For Project"
                 ls
