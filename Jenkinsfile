@@ -35,8 +35,18 @@ pipeline {
         stage('Run Selenium Tests') {
           
             steps {
+                
+                
+                dir('/home/ubuntu/test_root') {
+                    sh 'docker compose up -d'
+                    sleep 10
+                }
+                
+                
                 sh """
                 echo "Running Selenium Tests"
+                docker compose up -d 
+                sleep 10
                 sudo npm install -g mocha
                 sudo npm install -g mocha-junit-reporter
                 sudo npm install selenium-webdriver
