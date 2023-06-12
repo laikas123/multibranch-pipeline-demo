@@ -45,8 +45,6 @@ pipeline {
                 
                 sh """
                 echo "Running Selenium Tests"
-                docker compose up -d 
-                sleep 10
                 sudo npm install -g mocha
                 sudo npm install -g mocha-junit-reporter
                 sudo npm install selenium-webdriver
