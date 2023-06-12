@@ -19,7 +19,7 @@ pipeline {
         
         stage('Cleanup Workspace') {
             steps {
-                echo "The current pr number is ${env.CHANGE_ID}"
+                echo "The current commit is ${env.GIT_COMMIT}"
                 sh """
                 echo "Cleaned Up Workspace For Project"
                 echo "pull request id = $PULL_REQUEST"
