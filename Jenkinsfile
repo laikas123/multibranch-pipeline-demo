@@ -13,13 +13,14 @@ pipeline {
             )
     }
     
-    def PULL_REQUEST = env.CHANGE_ID
+    
 
     stages {
         
         stage('Cleanup Workspace') {
             steps {
                 sh """
+                echo "the current PR number is ${env.CHANGE_ID}"
                 echo "Cleaned Up Workspace For Project"
                 echo "pull request id = $PULL_REQUEST"
                 """
