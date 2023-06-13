@@ -26,10 +26,11 @@ pipeline {
                 echo "The current commit hash is ${env.GIT_COMMIT}"
                 echo "The previous commit hash is ${env.GIT_PREVIOUS_COMMIT}"
                 echo "The current branch is ${env.GIT_BRANCH}"
-                git diff --stat ${env.GIT_PREVIOUS_COMMIT} ${env.GIT_COMMIT}
+                
                 sh """
                 echo "Cleaned Up Workspace For Project"
                 ls
+                git diff --stat ${env.GIT_PREVIOUS_COMMIT} ${env.GIT_COMMIT}
                 """
             }
         }
