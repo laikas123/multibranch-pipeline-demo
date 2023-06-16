@@ -47,10 +47,10 @@ pipeline {
                 //     sleep 10
                 // }
 
-                dir('/home/ubuntu/test_root') {
-                    sh "./start.sh multibranch-pipeline-demo 5eefc59a558befae47a6329df8f328117e196526"
+                // dir('/home/ubuntu/test_root') {
+                //     sh "./start.sh multibranch-pipeline-demo 5eefc59a558befae47a6329df8f328117e196526"
                     
-                }
+                // }
                 
                 // sh """
                 // echo howdy
