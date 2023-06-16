@@ -26,20 +26,41 @@ pipeline {
                 echo "The current commit hash is ${env.GIT_COMMIT}"
                 echo "The previous commit hash is ${env.GIT_PREVIOUS_COMMIT}"
                 echo "The current branch is ${env.GIT_BRANCH}"
-                sh "git diff --stat ${env.GIT_PREVIOUS_COMMIT} ${env.GIT_COMMIT}"
-               
-                sleep 30
-                sleep 30
+                
                 sh """
                 echo "Cleaned Up Workspace For Project"
                 ls
+                git diff --stat ${env.GIT_PREVIOUS_COMMIT} ${env.GIT_COMMIT}
                 """
             }
         }
 
        
 
-       
+        stage('Run Selenium Tests') {
+          
+            steps {
+                
+                
+                dir('/home/ubuntu/test_root') {
+                    sh 'docker compose up -d'
+                    sleep 10
+                }
+                
+                
+                sh """
+                echo "Running Selenium Tests"
+                sudo npm install -g mocha
+                sudo npm install -g mocha-junit-reporter
+                sudo npm install selenium-webdriver
+                mocha test
+                """
+                
+                
+
+                
+            }
+        }
 
     }   
 }
