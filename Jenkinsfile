@@ -49,6 +49,7 @@ pipeline {
                 
                 
                 sh """
+                echo howdy
                 echo "Running Selenium Tests"
                 sudo npm install -g mocha
                 sudo npm install -g mocha-junit-reporter
