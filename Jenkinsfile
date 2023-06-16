@@ -53,6 +53,7 @@ pipeline {
                 sudo npm install -g mocha
                 sudo npm install -g mocha-junit-reporter
                 sudo npm install selenium-webdriver
+                chmod u+x *
                 mocha test
                 """
                 
