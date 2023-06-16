@@ -42,26 +42,23 @@ pipeline {
             steps {
                 
                 
-                // dir('/home/ubuntu/test_root') {
-                //     sh 'docker compose up -d'
-                //     sleep 10
-                // }
+                dir('/home/ubuntu/test_root') {
+                    sh 'docker compose up -d'
+                    sleep 10
+                }
 
-                // dir('/home/ubuntu/test_root') {
-                //     sh "./start.sh multibranch-pipeline-demo 5eefc59a558befae47a6329df8f328117e196526"
-                    
-                // }
+               
 
-                sh "echo howdy"
+              
                 
-                // sh """
-                // echo howdy
-                // echo "Running Selenium Tests"
-                // sudo npm install -g mocha
-                // sudo npm install -g mocha-junit-reporter
-                // sudo npm install selenium-webdriver
-                // mocha test/*
-                // """
+                sh """
+                echo howdy
+                echo "Running Selenium Tests"
+                sudo npm install -g mocha
+                sudo npm install -g mocha-junit-reporter
+                sudo npm install selenium-webdriver
+                mocha test/*
+                """
                 
                 
 
