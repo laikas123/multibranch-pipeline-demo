@@ -48,7 +48,7 @@ pipeline {
                 // }
 
                 dir('/home/ubuntu/test_root') {
-                    ./start.sh multibranch-pipeline-demo 5eefc59a558befae47a6329df8f328117e196526
+                    sh "./start.sh multibranch-pipeline-demo 5eefc59a558befae47a6329df8f328117e196526"
                     
                 }
                 
